@@ -1,0 +1,10 @@
+{
+    "compileOnSave": true,
+    "compilerOptions": {
+        "baseUrl": "app"
+    },
+    "include": [
+        "src",
+        "app"
+    ]
+}
