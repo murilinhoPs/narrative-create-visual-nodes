@@ -83,6 +83,7 @@ const MainFlow = () => {
             <ReactFlow
                 nodeTypes={nodeTypes}
                 defaultNodes={nodes}
+                edges={edges}
                 onNodesChange={onNodesChange}
                 onEdgesChange={onEdgesChange}
                 onConnect={onConnect}
