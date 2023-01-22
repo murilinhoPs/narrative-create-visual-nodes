@@ -1,0 +1,28 @@
+.option-node {
+  padding: 5px;
+  border-radius: 5px;
+  background: wheat;
+}
+
+.option-node label {
+  display: block;
+  color: #777;
+  font-size: 8px;
+}
+
+.option-input {
+  font-size: 8px;
+  color: #4e4e4e;
+  padding: 2px 4px;
+  margin: 4px 0;
+  box-sizing: border-box;
+  box-shadow: none;
+  border: 1.4px solid #929292;
+  border-radius: 4px;
+  transition: 0.3s all;
+}
+
+.option-input:hover {
+  background-color: rgba(255, 255, 255, 0.45);
+  box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.05);
+}
