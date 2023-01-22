@@ -1,4 +1,4 @@
-import React, { useCallback, memo, useState, useEffect } from 'react';
+import React, { memo } from 'react';
 import {
     NodeProps,
     Handle,
@@ -8,20 +8,9 @@ import './index.css';
 
 import { TextNodeData } from '../../services/NodeTypes';
 import * as HandleStles from './HandleStyles'
-import OptionNode from '../OptionNode';
 
 
 const TextNode: React.FC<NodeProps<TextNodeData>> = ({ data, xPos, yPos, id }) => {
-    const [optionValue, setOptionValue] = useState(['']);
-
-    const onChange = useCallback((evt: any) => {
-        console.log(evt.target.value);
-    }, [])
-
-    useEffect(() => {
-        setOptionValue(data.options)
-    }, [])
-
     return <div className='text-node'>
         <Handle style={HandleStles.target} type='target' position={Position.Top} />
         <div>
@@ -32,19 +21,6 @@ const TextNode: React.FC<NodeProps<TextNodeData>> = ({ data, xPos, yPos, id }) =
                 <span>save: </span>
             </label>
         </div>
-        {data.options.map((option, index) =>
-            <div className='options-inputs'>
-                <OptionNode />
-            </div>
-        )}
-        {/* {data.options.map((_, index) =>
-            <Handle
-                style={{ ...HandleStles.source, ...{ top: 70 + index * 26 + 1, right: 6 } }}
-                id={index.toString()}
-                type='source'
-                position={Position.Right}
-            />
-        )} */}
     </div>
 }
 
