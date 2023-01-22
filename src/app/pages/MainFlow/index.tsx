@@ -69,7 +69,7 @@ const MainFlow = () => {
                     nextText: 1,
                     setState: { mapa: true },
                 },
-                position: { x: 0, y: 55 },
+                position: { x: 0, y: 100 },
                 parentNode: id,
                 extent: 'parent',
             }

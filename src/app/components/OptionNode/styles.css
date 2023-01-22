@@ -5,7 +5,7 @@
   border-left: 1.5px solid #eee;
   background: wheat;
   height: 44px;
-  width: 120px;
+  width: 160px;
 }
 
 .option-node label {
@@ -24,6 +24,7 @@
   border: 1.4px solid #929292;
   border-radius: 4px;
   transition: 0.3s all;
+  width: 152px;
   /* resize: none; */
 }
 
