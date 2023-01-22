@@ -1,10 +1,10 @@
 import React from 'react'
-import './App.css'
+import MainFlow from './pages/MainFlow'
 
-const App = () => {
-  return <div className="App">
-
-  </div>
+const App: React.FC = () => {
+  return <>
+    <MainFlow />
+  </>
 }
 
 export default App
