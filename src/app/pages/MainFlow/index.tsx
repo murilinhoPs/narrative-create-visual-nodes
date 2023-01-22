@@ -21,7 +21,7 @@ import initialEdges from '../../services/InitialEdges';
 import nodeTypes, { OptionNodeData, TextNodeData } from '../../services/NodeTypes';
 import './index.css'
 
-let nodeId = 1;
+export let nodeId = 1;
 
 const MainFlow = () => {
     const [nodes, setNodes] = useState<Node[]>(initialNodes);
@@ -79,17 +79,15 @@ const MainFlow = () => {
 
 
     return (
-
         <div style={{ height: '100vh' }}>
             <ReactFlow
                 nodeTypes={nodeTypes}
                 defaultNodes={nodes}
-                defaultEdges={edges}
                 onNodesChange={onNodesChange}
                 onEdgesChange={onEdgesChange}
                 onConnect={onConnect}
                 fitView>
-                <MiniMap nodeColor='#ff0071' nodeStrokeWidth={3} zoomable pannable />
+                <MiniMap nodeColor='#ff0073b5' nodeStrokeWidth={3} zoomable pannable />
                 <Controls />
                 <Background />
             </ReactFlow>
