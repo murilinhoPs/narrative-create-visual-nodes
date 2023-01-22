@@ -1,7 +1,7 @@
 import { OptionNodeData, TextNodeData } from './NodeTypes'
 import { Node } from 'reactflow'
 
-const optionNodes: Node<OptionNodeData>[] = [
+export const optionNodes: Node<OptionNodeData>[] = [
   {
     id: '4-1',
     type: 'optionNode',
@@ -26,7 +26,7 @@ const optionNodes: Node<OptionNodeData>[] = [
       nextText: 5,
       setState: { mapa: true },
     },
-    position: { x: 0, y: 110 },
+    position: { x: 0, y: 100 },
     parentNode: '4',
     extent: 'parent',
   },

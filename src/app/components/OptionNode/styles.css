@@ -1,13 +1,17 @@
 .option-node {
   padding: 5px;
   border-radius: 5px;
+  border-right: 1.5px solid #eee;
+  border-left: 1.5px solid #eee;
   background: wheat;
+  height: 44px;
+  width: 120px;
 }
 
 .option-node label {
   display: block;
   color: #777;
-  font-size: 8px;
+  font-size: 6px;
 }
 
 .option-input {
@@ -20,6 +24,7 @@
   border: 1.4px solid #929292;
   border-radius: 4px;
   transition: 0.3s all;
+  /* resize: none; */
 }
 
 .option-input:hover {

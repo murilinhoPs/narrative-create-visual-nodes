@@ -1,8 +1,9 @@
 .text-node {
-  border: 1px solid #eee;
+  border: 1.5px solid #eee;
   padding: 5px;
   border-radius: 5px;
   background: wheat;
+  width: 120px;
 }
 
 .text-node label {
