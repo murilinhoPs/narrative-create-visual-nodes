@@ -3,6 +3,7 @@ import { OptionNodeData } from '../../services/NodeTypes';
 import { Handle, NodeProps, Position } from 'reactflow';
 import './styles.css'
 
+
 const OptionNode: React.FC<NodeProps<OptionNodeData>> = ({ data, xPos, yPos, id }) => {
     const onChange = useCallback((evt: any) => {
         console.log(evt.target.value);
@@ -12,13 +13,10 @@ const OptionNode: React.FC<NodeProps<OptionNodeData>> = ({ data, xPos, yPos, id 
         <label>nome: </label>
         <textarea className='option-input'
             id='text'
-            // type='textArea'
             onChange={onChange}
             defaultValue={data.text}
-
         />
-        <Handle type='source' position={Position.Right} />
-        {/* <Handle type='source' position={Position.Left} /> */}
+        <Handle type='source' position={Position.Right} style={{ right: 2.2, top: 30 }} />
     </div>
 }
 
