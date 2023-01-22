@@ -16,20 +16,6 @@ export const optionNodes: Node<OptionNodeData>[] = [
     parentNode: '1',
     extent: 'parent',
   },
-  {
-    id: '1-2',
-    type: 'optionNode',
-    draggable: false,
-    data: {
-      index: 1,
-      text: 'Option 2',
-      nextText: 5,
-      setState: { mapa: true },
-    },
-    position: { x: 0, y: 146 },
-    parentNode: '1',
-    extent: 'parent',
-  },
 ]
 
 const myTextNode: Node<TextNodeData> = {
