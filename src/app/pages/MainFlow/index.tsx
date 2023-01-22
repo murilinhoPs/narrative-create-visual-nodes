@@ -87,7 +87,9 @@ const MainFlow = () => {
                 onNodesChange={onNodesChange}
                 onEdgesChange={onEdgesChange}
                 onConnect={onConnect}
-                fitView>
+                fitView
+                style={{ backgroundColor: '#dcdbe8' }}
+                connectionLineStyle={{ stroke: 'black' }}>
                 <MiniMap nodeColor='#ff0073b5' nodeStrokeWidth={3} zoomable pannable />
                 <Controls />
                 <Background />
