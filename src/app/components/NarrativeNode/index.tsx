@@ -1,4 +1,5 @@
 import React, { memo, useCallback, useRef, useState } from 'react';
+import { shallow } from 'zustand/shallow'
 import {
     NodeProps,
     Handle,
@@ -10,6 +11,7 @@ import './index.css';
 
 import { OptionNodeData, NarrativeNodeData } from '../../services/NodeTypes';
 import * as HandleStles from './HandleStyles'
+import useReactFlowStore from '../../stores/ReactFlowStore';
 
 
 const NarrativeNode: React.FC<NodeProps<NarrativeNodeData>> = ({ data, id }) => {
@@ -17,22 +19,10 @@ const NarrativeNode: React.FC<NodeProps<NarrativeNodeData>> = ({ data, id }) => 
     let heightOffset = 46;
     const height = useRef(0);
     const reactFlowInstance = useReactFlow();
-    const [textareaheight, setTextareaheight] = useState(1);
-
-    const updateNodesOffset = (flowNodeStates: Node<OptionNodeData>[]): Node<OptionNodeData>[] => {
-        return flowNodeStates.map((node) => {
-            console.log(node.parentNode);
-
-            height.current += 20;
-            return {
-                ...node,
-                position: {
-                    x: 0,
-                    y: node.position.y + height.current,
-                },
-            };
-        });
-    };
+    const [textareaheight, setTextareaheight] = useState(4);
+    const { updateNodeHeightOffset } = useReactFlowStore((state) => ({
+        updateNodeHeightOffset: state.updateOptionNodeHeightOffset,
+    }), shallow);
 
     const onClickAdd = useCallback(
         () => {
@@ -48,30 +38,29 @@ const NarrativeNode: React.FC<NodeProps<NarrativeNodeData>> = ({ data, id }) => 
                     nextText: 1,
                     setState: { mapa: true },
                 },
-                position: { x: 0, y: 100 + height.current },
+                // style: { background: 'rgb(193, 42, 42)' },
+                position: { x: 0, y: 120 + height.current },
                 parentNode: id,
+                zIndex: optionNodeId,
                 extent: 'parent',
             }
             reactFlowInstance.addNodes(optionNode)
         }, [])
 
     const handleChange = (event: any) => {
-        const height = event.target.scrollHeight;
+        const areaHeight = event.target.scrollHeight;
         const rowHeight = 15;
-        const trows = Math.ceil(height / rowHeight) - 1;
+        const trows = Math.ceil(areaHeight / rowHeight) + 1;
         if (trows && textareaheight) {
             setTextareaheight(trows);
         }
-        let thisOptionNodes = reactFlowInstance.getNodes().filter((e) => e.type === 'optionNode' && e.parentNode === `${id}`)
-        console.log(thisOptionNodes);
-        // reactFlowInstance.setNodes((nds) => updateNodesOffset(thisOptionNodes))
-        // reactFlowInstance.setNodes()
+        height.current = updateNodeHeightOffset(trows + 16, id, 'optionNode')
     }
 
     return (
         <>
-            <Handle style={{ ...HandleStles.target, top: 80 }} type='target' position={Position.Left} />
-            <Handle style={HandleStles.target} type='target' position={Position.Top} />
+            <Handle style={{ ...HandleStles.target, top: 90 }} type='target' position={Position.Left} />
+            {/* <Handle style={HandleStles.target} type='target' position={Position.Top} /> */}
             <div className='text-node'>
                 <label>Id: {id}</label>
                 <label>Nome: {data.label}</label>
@@ -79,7 +68,7 @@ const NarrativeNode: React.FC<NodeProps<NarrativeNodeData>> = ({ data, id }) => 
                     <input className='toggle-switch-checkbox' type="checkbox" onChange={() => { }} />
                     <span>save: </span>
                 </label>
-                <div className='narrative-title'>
+                <div className='narrative-title nodrag'>
                     <label>narrativa: </label>
                     <textarea
                         className='title-input'

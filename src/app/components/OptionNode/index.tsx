@@ -16,7 +16,7 @@ const OptionNode: React.FC<NodeProps<OptionNodeData>> = ({ data, xPos, yPos, id 
             onChange={onChange}
             defaultValue={data.text}
         />
-        <Handle type='source' position={Position.Right} style={{ right: 4, top: 30 }} />
+        <Handle type='source' position={Position.Right} style={{ right: 4, top: 28 }} />
     </div>
 }
 

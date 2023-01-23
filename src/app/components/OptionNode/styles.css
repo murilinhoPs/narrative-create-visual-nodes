@@ -1,12 +1,15 @@
 .option-node {
-  padding: 5px;
+  /* opacity: 0.3; */
+
+  padding: 3.2px;
+  padding-top: 6px;
   border-bottom-right-radius: 5px;
   border-bottom-left-radius: 5px;
   border-right: 1.5px solid #eee;
   border-left: 1.5px solid #eee;
   background: wheat;
   height: 44px;
-  width: 160px;
+  width: 163.4px;
 }
 
 .option-node label {
