@@ -33,6 +33,7 @@ const NarrativeNode: React.FC<NodeProps<NarrativeNodeData>> = ({ data, id }) => 
             };
         });
     };
+
     const onClickAdd = useCallback(
         () => {
             height.current += heightOffset;
@@ -53,6 +54,7 @@ const NarrativeNode: React.FC<NodeProps<NarrativeNodeData>> = ({ data, id }) => 
             }
             reactFlowInstance.addNodes(optionNode)
         }, [])
+
     const handleChange = (event: any) => {
         const height = event.target.scrollHeight;
         const rowHeight = 15;
