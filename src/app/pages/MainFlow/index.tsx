@@ -77,8 +77,6 @@ const MainFlow = () => {
             reactFlowInstance.addNodes([newNarrativeNode, defaultOptionNode])
         }, [])
 
-
-
     return (
         <div style={{ height: '100vh' }}>
             <ReactFlow
