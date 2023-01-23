@@ -4,6 +4,7 @@
   border-radius: 5px;
   background: wheat;
   width: 160px;
+  height: fit-content;
 }
 
 .text-node label {
@@ -59,10 +60,6 @@
 .toggle-switch input[type='checkbox']:focus + span::after {
   outline: 0;
 }
-.narrative-title {
-  height: 44px;
-  width: 80px;
-}
 
 .narrative-title label {
   font-size: 8px;
@@ -78,6 +75,9 @@
   border-radius: 4px;
   transition: 0.3s all;
   width: 160px;
+  min-height: 30px;
+  overflow-y: scroll;
+  resize: none;
 }
 
 .title-input:hover {
