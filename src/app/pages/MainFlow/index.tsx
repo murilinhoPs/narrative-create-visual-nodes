@@ -1,48 +1,32 @@
-import React, { useState, useCallback } from 'react'
+import React, { useCallback } from 'react'
+import { shallow } from 'zustand/shallow'
 import ReactFlow, {
-    addEdge,
-    applyNodeChanges,
-    applyEdgeChanges,
     Node,
-    Edge,
-    NodeChange,
-    EdgeChange,
-    Connection,
     Controls,
     Background,
     MiniMap,
     useReactFlow,
     BackgroundVariant,
-
 } from 'reactflow';
 import 'reactflow/dist/style.css';
 
-import initialNodes from '../../services/InitialNodes';
-import initialEdges from '../../services/InitialEdges';
 import nodeTypes, { OptionNodeData, NarrativeNodeData } from '../../services/NodeTypes';
 import './index.css'
+import useReactFlowStore, { RFState } from '../../stores/ReactFlowStore';
 
 export let nodeId = 1;
 
+const selector = (state: RFState) => ({
+    nodes: state.nodes,
+    edges: state.edges,
+    onNodesChange: state.onNodesChange,
+    onEdgesChange: state.onEdgesChange,
+    onConnect: state.onConnect,
+})
+
 const MainFlow = () => {
-    const [nodes, setNodes] = useState<Node[]>(initialNodes);
-    const [edges, setEdges] = useState<Edge[]>(initialEdges);
-
-    const onNodesChange = useCallback(
-        (changes: NodeChange[]) => setNodes((nds) => applyNodeChanges(changes, nds)),
-        [setNodes]
-    );
-    const onEdgesChange = useCallback(
-        (changes: EdgeChange[]) => setEdges((eds) => applyEdgeChanges(changes, eds)),
-        [setEdges]
-    );
-    const onConnect = useCallback(
-        (connection: Connection) => setEdges((eds) => addEdge(connection, eds)),
-        [setEdges]
-    );
-
+    const { nodes, edges, onNodesChange, onEdgesChange, onConnect } = useReactFlowStore(selector, shallow);
     const reactFlowInstance = useReactFlow();
-
     const onClickAdd = useCallback(
         () => {
             const id = `${++nodeId}`
@@ -70,9 +54,10 @@ const MainFlow = () => {
                     nextText: 1,
                     setState: { mapa: true },
                 },
-                position: { x: 0, y: 100 },
+                position: { x: 0, y: 120 },
                 parentNode: id,
                 extent: 'parent',
+                zIndex: -1
             }
             reactFlowInstance.addNodes([newNarrativeNode, defaultOptionNode])
         }, [])
@@ -81,7 +66,7 @@ const MainFlow = () => {
         <div style={{ height: '100vh' }}>
             <ReactFlow
                 nodeTypes={nodeTypes}
-                defaultNodes={nodes}
+                nodes={nodes}
                 edges={edges}
                 onNodesChange={onNodesChange}
                 onEdgesChange={onEdgesChange}

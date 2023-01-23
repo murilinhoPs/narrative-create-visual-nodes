@@ -12,9 +12,11 @@ export const optionNodes: Node<OptionNodeData>[] = [
       nextText: 5,
       setState: { mapa: true },
     },
-    position: { x: 0, y: 100 },
+    position: { x: 0, y: 120 },
     parentNode: '1',
+    // style: { background: 'rgb(42, 42, 193)' },
     extent: 'parent',
+    zIndex: 1,
   },
 ]
 
@@ -28,6 +30,7 @@ const myNarrativeNode: Node<NarrativeNodeData> = {
     value: 1,
   },
   position: { x: 150, y: 25 },
+  zIndex: -1,
 }
 
 const initialNodes: Node[] = [myNarrativeNode, ...optionNodes]
