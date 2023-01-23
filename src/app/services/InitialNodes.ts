@@ -1,4 +1,4 @@
-import { OptionNodeData, TextNodeData } from './NodeTypes'
+import { OptionNodeData, NarrativeNodeData } from './NodeTypes'
 import { Node } from 'reactflow'
 
 export const optionNodes: Node<OptionNodeData>[] = [
@@ -18,9 +18,9 @@ export const optionNodes: Node<OptionNodeData>[] = [
   },
 ]
 
-const myTextNode: Node<TextNodeData> = {
+const myNarrativeNode: Node<NarrativeNodeData> = {
   id: '1',
-  type: 'textNode',
+  type: 'narrativeNode',
   data: {
     label: 'Node 3',
     title: 'Nullam molestie vestibulum scelerisqu...',
@@ -30,6 +30,6 @@ const myTextNode: Node<TextNodeData> = {
   position: { x: 150, y: 25 },
 }
 
-const initialNodes: Node[] = [myTextNode, ...optionNodes]
+const initialNodes: Node[] = [myNarrativeNode, ...optionNodes]
 
 export default initialNodes

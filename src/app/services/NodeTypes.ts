@@ -1,8 +1,8 @@
-import OptionNode from '../components/OptionNode'
-import TextNode from '../components/TextNode'
 import { Node } from 'reactflow'
+import OptionNode from '../components/OptionNode'
+import NarrativeNode from '../components/NarrativeNode'
 
-export type TextNodeData = {
+export type NarrativeNodeData = {
   value: number
   label: string
   save: Boolean
@@ -24,7 +24,7 @@ export type OptionNodesGroupData = {
 }
 
 const nodeTypes = {
-  textNode: TextNode,
+  narrativeNode: NarrativeNode,
   optionNode: OptionNode,
 }
 

@@ -19,7 +19,7 @@ import 'reactflow/dist/style.css';
 
 import initialNodes from '../../services/InitialNodes';
 import initialEdges from '../../services/InitialEdges';
-import nodeTypes, { OptionNodeData, TextNodeData } from '../../services/NodeTypes';
+import nodeTypes, { OptionNodeData, NarrativeNodeData } from '../../services/NodeTypes';
 import './index.css'
 
 export let nodeId = 1;
@@ -46,9 +46,9 @@ const MainFlow = () => {
     const onClickAdd = useCallback(
         () => {
             const id = `${++nodeId}`
-            const newTextNode: Node<TextNodeData> = {
+            const newNarrativeNode: Node<NarrativeNodeData> = {
                 id: id,
-                type: 'textNode',
+                type: 'narrativeNode',
                 data: {
                     label: 'Node A',
                     title: 'A narrativa da opção...',
@@ -74,7 +74,7 @@ const MainFlow = () => {
                 parentNode: id,
                 extent: 'parent',
             }
-            reactFlowInstance.addNodes([newTextNode, defaultOptionNode])
+            reactFlowInstance.addNodes([newNarrativeNode, defaultOptionNode])
         }, [])
 
 

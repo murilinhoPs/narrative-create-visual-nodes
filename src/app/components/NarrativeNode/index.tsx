@@ -8,11 +8,11 @@ import {
 } from 'reactflow';
 import './index.css';
 
-import { OptionNodeData, TextNodeData } from '../../services/NodeTypes';
+import { OptionNodeData, NarrativeNodeData } from '../../services/NodeTypes';
 import * as HandleStles from './HandleStyles'
 
 
-const TextNode: React.FC<NodeProps<TextNodeData>> = ({ data, xPos, yPos, id }) => {
+const NarrativeNode: React.FC<NodeProps<NarrativeNodeData>> = ({ data, xPos, yPos, id }) => {
     let optionNodeId = 1;
 
     const reactFlowInstance = useReactFlow();
@@ -44,7 +44,7 @@ const TextNode: React.FC<NodeProps<TextNodeData>> = ({ data, xPos, yPos, id }) =
 
     return <div className='text-node'>
         <Handle style={HandleStles.target} type='target' position={Position.Left} />
-        <Handle style={HandleStles.target} type='target' position={Position.Right} />
+        <Handle style={HandleStles.target} type='target' position={Position.Top} />
         <div>
             <label>Id: {id}</label>
             <label htmlFor='text'>Nome: {data.label}</label>
@@ -65,4 +65,4 @@ const TextNode: React.FC<NodeProps<TextNodeData>> = ({ data, xPos, yPos, id }) =
     </div>
 }
 
-export default memo(TextNode);
+export default memo(NarrativeNode);
