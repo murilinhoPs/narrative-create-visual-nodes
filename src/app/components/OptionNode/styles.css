@@ -1,6 +1,7 @@
 .option-node {
   padding: 5px;
-  border-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
   border-right: 1.5px solid #eee;
   border-left: 1.5px solid #eee;
   background: wheat;
