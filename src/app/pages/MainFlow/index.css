@@ -3,3 +3,8 @@
   top: 10px;
   left: 10px;
 }
+
+.react-flow__edge-path {
+  stroke: rgb(94, 94, 94);
+  stroke-width: 2;
+}

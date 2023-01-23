@@ -12,6 +12,7 @@ import ReactFlow, {
     Background,
     MiniMap,
     useReactFlow,
+    BackgroundVariant,
 
 } from 'reactflow';
 import 'reactflow/dist/style.css';
@@ -88,11 +89,11 @@ const MainFlow = () => {
                 onEdgesChange={onEdgesChange}
                 onConnect={onConnect}
                 fitView
-                style={{ backgroundColor: '#dcdbe8' }}
+                style={{ backgroundColor: '#a5a2bf' }}
                 connectionLineStyle={{ stroke: 'black' }}>
                 <MiniMap nodeColor='#ff0073b5' nodeStrokeWidth={3} zoomable pannable />
                 <Controls />
-                <Background />
+                <Background variant={BackgroundVariant.Cross} color='#8e8e8e' gap={30} />
             </ReactFlow>
             <button onClick={onClickAdd} className='btn-add'>add node</button>
         </div>
