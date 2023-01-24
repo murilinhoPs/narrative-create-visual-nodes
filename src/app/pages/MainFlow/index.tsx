@@ -54,7 +54,7 @@ const MainFlow = () => {
                     nextText: 1,
                     setState: { mapa: true },
                 },
-                position: { x: 0, y: 120 },
+                position: { x: 0, y: 124 },
                 parentNode: id,
                 extent: 'parent',
                 zIndex: -1
