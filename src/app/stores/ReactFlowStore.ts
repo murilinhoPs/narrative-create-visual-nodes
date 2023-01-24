@@ -55,10 +55,6 @@ const useReactFlowStore = create<RFState>((set, get) => ({
     set({
       nodes: get().nodes.map((node) => {
         if (node.parentNode === parentNode && node.type === type) {
-          //   console.log(`thisOptionNodes: ${node.id}`)
-          //   console.log(node.position.y)
-
-          //   height += 1
           const newNode = {
             ...node,
             position: {
@@ -66,12 +62,8 @@ const useReactFlowStore = create<RFState>((set, get) => ({
               y: node.position.y + height,
             },
           }
-          console.log(newNode.id)
-          console.log(newNode.position.y)
-
           return newNode
         }
-
         return node
       }),
     })
