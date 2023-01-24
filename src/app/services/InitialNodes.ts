@@ -10,7 +10,7 @@ export const optionNodes: Node<OptionNodeData>[] = [
     data: {
       index: 0,
       text: 'Option 1',
-      nextText: 5,
+      nextText: 0,
       setState: { mapa: true },
     },
     position: { x: 0, y: nodeDefaultHeight },

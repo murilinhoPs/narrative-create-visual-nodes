@@ -24,7 +24,6 @@ export type RFState = {
     height: number,
     parentNode: string,
     type: string,
-    nodes?: Node[],
   ) => number
 }
 
@@ -44,13 +43,18 @@ const useReactFlowStore = create<RFState>((set, get) => ({
   onConnect: (connection: Connection) => {
     set({
       edges: addEdge(connection, get().edges),
+      nodes: get().nodes.map((node) => {
+        if (node.id === connection.source) {
+          node.data.nextText = parseInt(connection.target ?? '0')
+        }
+        return node
+      }),
     })
   },
   updateOptionNodeHeightOffset: (
     height: number,
     parentNode: string,
     type: string,
-    nodes?: Node[],
   ) => {
     set({
       nodes: get().nodes.map((node) => {

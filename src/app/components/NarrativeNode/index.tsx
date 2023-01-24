@@ -21,8 +21,9 @@ const NarrativeNode: React.FC<NodeProps<NarrativeNodeData>> = ({ data, id }) => 
     let heightOffset = heightOffsetY;
     const height = useRef(0);
     const reactFlowInstance = useReactFlow();
-    const { updateNodeHeightOffset } = useReactFlowStore((state) => ({
+    const { updateNodeHeightOffset, edges } = useReactFlowStore((state) => ({
         updateNodeHeightOffset: state.updateOptionNodeHeightOffset,
+        edges: state.edges,
     }), shallow);
 
     const onClickAdd = useCallback(
@@ -30,13 +31,13 @@ const NarrativeNode: React.FC<NodeProps<NarrativeNodeData>> = ({ data, id }) => 
             height.current += heightOffset;
             ++optionNodeId
             const optionNode: Node<OptionNodeData> = {
-                id: `${id} - ${optionNodeId}`,
+                id: `${id}-${optionNodeId}`,
                 type: 'optionNode',
                 draggable: false,
                 data: {
                     index: optionNodeId,
                     text: `Option ${optionNodeId}`,
-                    nextText: 1,
+                    nextText: 0,
                     setState: { mapa: true },
                 },
                 position: { x: 0, y: nodeDefaultHeight + height.current },

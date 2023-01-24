@@ -46,13 +46,13 @@ const MainFlow = () => {
                 },
             }
             const defaultOptionNode: Node<OptionNodeData> = {
-                id: `${id} - 1`,
+                id: `${id}-1`,
                 type: 'optionNode',
                 draggable: false,
                 data: {
                     index: 0,
                     text: 'Option 1',
-                    nextText: 1,
+                    nextText: 0,
                     setState: { mapa: true },
                 },
                 position: { x: 0, y: nodeDefaultHeight },

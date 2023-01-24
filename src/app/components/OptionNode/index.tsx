@@ -11,7 +11,10 @@ const OptionNode: React.FC<NodeProps<OptionNodeData>> = ({ data, id }) => {
 
     return (
         <div className='option-node'>
-            <label>escolha: </label>
+            <div style={{ display: 'flex', flexDirection: 'row' }}>
+                <label>escolha: </label>
+                <label style={{ marginLeft: 12 }}>próxima escolha ID: {data.nextText} </label>
+            </div>
             <textarea className='option-input'
                 id='text'
                 onChange={onChange}
