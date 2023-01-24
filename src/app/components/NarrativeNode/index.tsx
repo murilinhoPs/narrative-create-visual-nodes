@@ -21,9 +21,8 @@ const NarrativeNode: React.FC<NodeProps<NarrativeNodeData>> = ({ data, id }) => 
     let heightOffset = heightOffsetY;
     const height = useRef(0);
     const reactFlowInstance = useReactFlow();
-    const { updateNodeHeightOffset, edges } = useReactFlowStore((state) => ({
+    const { updateNodeHeightOffset } = useReactFlowStore((state) => ({
         updateNodeHeightOffset: state.updateOptionNodeHeightOffset,
-        edges: state.edges,
     }), shallow);
 
     const onClickAdd = useCallback(

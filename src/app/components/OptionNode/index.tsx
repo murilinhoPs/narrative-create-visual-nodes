@@ -1,10 +1,17 @@
-import React, { useCallback, memo } from 'react';
+import React, { useCallback, memo, useEffect } from 'react';
 import { OptionNodeData } from '../../services/NodeTypes';
 import { Handle, NodeProps, Position } from 'reactflow';
 import './styles.css'
+import useReactFlowStore from '../../stores/ReactFlowStore';
+import { shallow } from 'zustand/shallow';
 
 
 const OptionNode: React.FC<NodeProps<OptionNodeData>> = ({ data, id }) => {
+    const { nodes } = useReactFlowStore((state) => ({
+        nodes: state.nodes,
+    }), shallow);
+    const nextText = nodes.find((node) => node.id === id)?.data.nextText;
+
     const onChange = useCallback((evt: any) => {
         console.log(evt.target.value);
     }, [])
@@ -13,7 +20,7 @@ const OptionNode: React.FC<NodeProps<OptionNodeData>> = ({ data, id }) => {
         <div className='option-node'>
             <div style={{ display: 'flex', flexDirection: 'row' }}>
                 <label>escolha: </label>
-                <label style={{ marginLeft: 12 }}>próxima escolha ID: {data.nextText} </label>
+                <label style={{ marginLeft: 12 }}>próxima escolha ID: {nextText} </label>
             </div>
             <textarea className='option-input'
                 id='text'

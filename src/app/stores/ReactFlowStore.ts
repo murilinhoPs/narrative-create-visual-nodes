@@ -46,7 +46,11 @@ const useReactFlowStore = create<RFState>((set, get) => ({
       nodes: get().nodes.map((node) => {
         if (node.id === connection.source) {
           node.data.nextText = parseInt(connection.target ?? '0')
+          console.log(node.data.nextText)
+          return node
         }
+        console.log(node.data.nextText)
+
         return node
       }),
     })
