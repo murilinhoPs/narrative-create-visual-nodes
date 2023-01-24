@@ -1,5 +1,6 @@
-import React, { memo, useCallback, useRef, useState } from 'react';
+import React, { memo, useCallback, useRef } from 'react';
 import { shallow } from 'zustand/shallow'
+import TextareaAutosize, { TextareaHeightChangeMeta } from 'react-textarea-autosize';
 import {
     NodeProps,
     Handle,
@@ -16,10 +17,9 @@ import useReactFlowStore from '../../stores/ReactFlowStore';
 
 const NarrativeNode: React.FC<NodeProps<NarrativeNodeData>> = ({ data, id }) => {
     let optionNodeId = 1;
-    let heightOffset = 46;
+    let heightOffset = 56;
     const height = useRef(0);
     const reactFlowInstance = useReactFlow();
-    const [textareaheight, setTextareaheight] = useState(4);
     const { updateNodeHeightOffset } = useReactFlowStore((state) => ({
         updateNodeHeightOffset: state.updateOptionNodeHeightOffset,
     }), shallow);
@@ -38,29 +38,21 @@ const NarrativeNode: React.FC<NodeProps<NarrativeNodeData>> = ({ data, id }) => 
                     nextText: 1,
                     setState: { mapa: true },
                 },
-                // style: { background: 'rgb(193, 42, 42)' },
-                position: { x: 0, y: 120 + height.current },
+                position: { x: 0, y: 124 + height.current },
                 parentNode: id,
-                zIndex: optionNodeId,
+                zIndex: optionNodeId + 1,
                 extent: 'parent',
             }
             reactFlowInstance.addNodes(optionNode)
         }, [])
 
-    const handleChange = (event: any) => {
-        const areaHeight = event.target.scrollHeight;
-        const rowHeight = 15;
-        const trows = Math.ceil(areaHeight / rowHeight) + 1;
-        if (trows && textareaheight) {
-            setTextareaheight(trows);
-        }
-        height.current = updateNodeHeightOffset(trows + 16, id, 'optionNode')
+    const handleHeightChange = (value: number, { rowHeight }: TextareaHeightChangeMeta) => {
+        height.current = updateNodeHeightOffset((rowHeight / 4) + 0.28, id, 'optionNode')
     }
 
     return (
         <>
             <Handle style={{ ...HandleStles.target, top: 90 }} type='target' position={Position.Left} />
-            {/* <Handle style={HandleStles.target} type='target' position={Position.Top} /> */}
             <div className='text-node'>
                 <label>Id: {id}</label>
                 <label>Nome: {data.label}</label>
@@ -70,12 +62,14 @@ const NarrativeNode: React.FC<NodeProps<NarrativeNodeData>> = ({ data, id }) => 
                 </label>
                 <div className='narrative-title nodrag'>
                     <label>narrativa: </label>
-                    <textarea
+                    <TextareaAutosize
                         className='title-input'
                         id='text'
+                        rows={6}
+                        minRows={3}
+                        maxRows={6}
                         defaultValue={data.title}
-                        rows={textareaheight}
-                        onChange={handleChange}
+                        onHeightChange={handleHeightChange}
                     />
                 </div>
             </div>
