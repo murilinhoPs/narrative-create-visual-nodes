@@ -1,5 +1,6 @@
 import { OptionNodeData, NarrativeNodeData } from './NodeTypes'
 import { Node } from 'reactflow'
+import { nodeDefaultHeight } from '../utils/NodesVars'
 
 export const optionNodes: Node<OptionNodeData>[] = [
   {
@@ -12,7 +13,7 @@ export const optionNodes: Node<OptionNodeData>[] = [
       nextText: 5,
       setState: { mapa: true },
     },
-    position: { x: 0, y: 124 },
+    position: { x: 0, y: nodeDefaultHeight },
     parentNode: '1',
     extent: 'parent',
     zIndex: 1,

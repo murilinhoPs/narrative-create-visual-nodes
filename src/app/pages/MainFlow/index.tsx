@@ -13,8 +13,9 @@ import 'reactflow/dist/style.css';
 import nodeTypes, { OptionNodeData, NarrativeNodeData } from '../../services/NodeTypes';
 import './index.css'
 import useReactFlowStore, { RFState } from '../../stores/ReactFlowStore';
+import { nodeDefaultHeight } from '../../utils/NodesVars';
 
-export let nodeId = 1;
+let nodeId = 1;
 
 const selector = (state: RFState) => ({
     nodes: state.nodes,
@@ -54,7 +55,7 @@ const MainFlow = () => {
                     nextText: 1,
                     setState: { mapa: true },
                 },
-                position: { x: 0, y: 124 },
+                position: { x: 0, y: nodeDefaultHeight },
                 parentNode: id,
                 extent: 'parent',
                 zIndex: -1

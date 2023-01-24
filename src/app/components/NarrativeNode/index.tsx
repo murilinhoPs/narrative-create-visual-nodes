@@ -13,11 +13,12 @@ import './index.css';
 import { OptionNodeData, NarrativeNodeData } from '../../services/NodeTypes';
 import * as HandleStles from './HandleStyles'
 import useReactFlowStore from '../../stores/ReactFlowStore';
+import { heightOffsetY, nodeDefaultHeight } from '../../utils/NodesVars';
 
 
 const NarrativeNode: React.FC<NodeProps<NarrativeNodeData>> = ({ data, id }) => {
     let optionNodeId = 1;
-    let heightOffset = 56;
+    let heightOffset = heightOffsetY;
     const height = useRef(0);
     const reactFlowInstance = useReactFlow();
     const { updateNodeHeightOffset } = useReactFlowStore((state) => ({
@@ -38,7 +39,7 @@ const NarrativeNode: React.FC<NodeProps<NarrativeNodeData>> = ({ data, id }) => 
                     nextText: 1,
                     setState: { mapa: true },
                 },
-                position: { x: 0, y: 124 + height.current },
+                position: { x: 0, y: nodeDefaultHeight + height.current },
                 parentNode: id,
                 zIndex: optionNodeId + 1,
                 extent: 'parent',
