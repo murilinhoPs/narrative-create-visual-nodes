@@ -16,6 +16,11 @@ const OptionNode: React.FC<NodeProps<OptionNodeData>> = ({ data, id }) => {
         console.log(evt.target.value);
     }, [])
 
+    useEffect(() => {
+        console.log(data.index);
+    },)
+
+
     return (
         <div className='option-node'>
             <div style={{ display: 'flex', flexDirection: 'row' }}>

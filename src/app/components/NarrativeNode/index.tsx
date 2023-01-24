@@ -34,7 +34,7 @@ const NarrativeNode: React.FC<NodeProps<NarrativeNodeData>> = ({ data, id }) => 
                 type: 'optionNode',
                 draggable: false,
                 data: {
-                    index: optionNodeId,
+                    index: optionNodeId - 1,
                     text: `Option ${optionNodeId}`,
                     nextText: 0,
                     setState: { mapa: true },
