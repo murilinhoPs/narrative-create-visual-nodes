@@ -1,6 +1,5 @@
 .option-node {
   /* opacity: 0.3; */
-
   padding: 3.2px;
   padding-top: 6px;
   border-bottom-right-radius: 5px;
@@ -8,8 +7,8 @@
   border-right: 1.5px solid #eee;
   border-left: 1.5px solid #eee;
   background: wheat;
-  height: 44px;
-  width: 163.4px;
+  height: 52px;
+  width: 263.4px;
 }
 
 .option-node label {
@@ -19,17 +18,17 @@
 }
 
 .option-input {
-  font-size: 8px;
+  font-size: 7.2px;
   color: #4e4e4e;
   padding: 2px 4px;
-  margin: 4px 0;
+  margin: 8px 0;
   box-sizing: border-box;
   box-shadow: none;
   border: 1.4px solid #929292;
   border-radius: 4px;
   transition: 0.3s all;
-  width: 152px;
-  /* resize: none; */
+  width: 252px;
+  resize: none;
 }
 
 .option-input:hover {
