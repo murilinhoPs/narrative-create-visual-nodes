@@ -5,6 +5,8 @@ const source: CSSProperties = {
 }
 const target: CSSProperties = {
   background: '#C3471D',
+  padding: 4,
+  left: -10,
 }
 
 export { source, target }
